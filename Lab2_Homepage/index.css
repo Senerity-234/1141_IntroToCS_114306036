@@ -1,0 +1,103 @@
+@media print {
+  body {
+    font-size: 12pt;
+    color: black;
+    background: none; /* 去掉背景顏色，省墨水 */
+  }
+}
+@media all {
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+}
+body{
+    width: 50%;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+.header {
+  background-color: #15b7e9;
+  color: aliceblue;
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px 0;
+  border-radius: 10px;       /* 圓角*/
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 陰影*/
+}
+h1 { 
+    font-size: 35px; margin: 0; 
+} 
+span { 
+    font-size: 20px;  margin: 0; 
+}
+
+.novbar {
+  background-color: navy;
+  color: aliceblue;
+  display: flex;
+  justify-content: space-around; /*  等比例分配 */
+  border-radius: 10px;       /* 圓角 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 陰影*/
+  margin: 0;
+  font-size: 20px;
+  gap: 30px;
+  list-style: none;        
+  padding: 0;
+  text-decoration: none;
+}
+.novebar > li {
+    flex: 1;                 
+    text-align: center;
+    cursor: pointer;
+    color:black;
+    background-color: #ccc;
+    transition: background-color 1s, color 1s;      
+}
+.novbar > li.dropdown:hover {
+    background-color: #15b7e9;
+    color: white;
+}
+.menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;            /*隱藏 */
+    position: absolute;
+    top: 100%;                
+    left: 0;
+    width: 100%;
+    background-color: navy;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 0;               /*初始透明 */
+    pointer-events: none;     
+    transform: translateY(-10px);  /* 往上縮起 */
+    transition: all 0.3s ease-out; /* 淡入 + 下滑 */
+}
+.dropdown:hover .menu {
+    opacity: 1;               /*淡入 */
+    pointer-events: auto;      /*可以點 */
+    transform: translateY(0);  /*向下滑出 */
+}
+
+.dropdown{
+    position: relative;
+}
+.menu li {
+    padding: 10px;
+    color: aliceblue;
+    background-color: navy;
+    transition: background-color 1s, color 1s; 
+}
+
+.menu li:hover {
+    background-color: #15b7e9;
+    color: white;
+}
+.dropdown:hover .menu {
+    display: block;
+}
