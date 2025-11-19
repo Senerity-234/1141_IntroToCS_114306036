@@ -1,0 +1,146 @@
+body {
+    background-color: #eeede1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    width: 1000px;
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+
+.left-panel {
+    width: 30%;
+    background-color: #f9f6cc;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-panel img {
+    width: 100%;
+    border-bottom: 3px solid #ddd;
+}
+
+.text-title {
+    border-bottom: 2px solid #000000;
+}
+
+.text-content {
+    padding: 20px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list a {
+    text-decoration: none;
+    color: #007acc;
+}
+
+.nccu-icon {
+    width: 80px;
+    display: block;
+    margin-top: 20px;
+}
+
+.right-panel {
+    width: 70%;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 22px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.year {
+    width: 140px;
+    font-weight: bold;
+    color: #444;
+}
+
+.description {
+    color: #666;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #d1eaff;
+    color: #0c4a6e;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.tag:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.hw-lab-container {
+    display: flex;
+    gap: 20px;
+}
+
+.hw-column, .lab-column {
+    flex: 1;
+    background-color: #f9f0c8;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.hw-column a, .lab-column a {
+    text-decoration: none;
+    color: #1a73e8;
+}
+
+.hw-column a:hover, .lab-column a:hover {
+    color: #ff6600;
+}
+
+.music-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.music-item {
+    text-align: center;
+    width: 22%;
+    text-decoration: none;
+    color: #333;
+}
+
+.music-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.music-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
