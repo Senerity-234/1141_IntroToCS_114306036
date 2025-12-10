@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1A2B Game</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        #record {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            width: 300px;
+            min-height: 150px;
+        }
+        input {
+            width: 100px;
+            padding: 5px;
+        }
+        button {
+            padding: 6px 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>StudentID_HW7_1A2B</h1>
+
+<input type="text" id="guessInput" placeholder="Enter 4 digits">
+<button onclick="play()">Guess</button>
+
+<div id="record"><b>Record:</b><br></div>
+
+<script>
+   function generateAnswer() {
+    let digits = ['0','1','2','3','4','5','6','7','8','9'];
+    let ans = "";
+
+    for (let i = 0; i < 4; i++) {
+        let index = Math.floor(Math.random() * digits.length);
+        ans += digits[index];
+        digits.splice(index, 1);
+    }
+    return ans;
+}
+
+let answer = generateAnswer();
+let attempts = 0;
+
+function isValid(str) {
+    if (str.length !== 4) {
+        return false;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        let ch = str[i];
+        if (ch < '0' || ch > '9') {
+            return false;
+        }
+    }
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = i + 1; j < 4; j++) {
+            if (str[i] === str[j]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+function checkAB(guess, ans) {
+    let A = 0, B = 0;
+
+    for (let i = 0; i < 4; i++) {
+        if (guess[i] === ans[i]) {
+            A++;
+        } else if (ans.includes(guess[i])) {
+            B++;
+        }
+    }
+
+    return A + "A" + B + "B";
+}
+
+function play() {
+    let inputBox = document.getElementById("guessInput");
+    let guess = inputBox.value;
+
+    if (!isValid(guess)) {
+        alert("請輸入四個不重複的數字。");
+        inputBox.value = "";
+        return;
+    }
+
+    attempts++;
+    let result = checkAB(guess, answer);
+
+    let rec = document.getElementById("record");
+    rec.innerHTML += attempts + ". " + guess + " → " + result + "<br>";
+
+    if (result === "4A0B") {
+        alert("恭喜！您總共猜了 " + attempts + " 次。");
+    }
+
+    inputBox.value = "";
+}
+
+</script>
+
+</body>
+</html>
